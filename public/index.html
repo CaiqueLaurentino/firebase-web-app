@@ -27,6 +27,12 @@
       <button class="tab-button" data-tab="questoes">Questões</button>
     </nav>
 
+    <div class="download-container">
+      <a href="assets/teste-icherry.pdf" download class="btn-download">
+        Baixar teste
+      </a>
+    </div>
+
     <section id="botoes" class="active">
       <h2>Botões</h2>
 
@@ -81,18 +87,27 @@
     <section id="questoes">
       <h2>Questões e Respostas</h2>
       <p>
-        <strong>6. GTM - Conceitos:</strong> Variável: Espaços para armazenar
-        valores. Por exemplo: URL da página, ID ou preço de um produto Trigger:
-        Condições/gatilhos que disparam as tags de acordo com determinadas
-        ações. Por exemplo disparar a tag x se um botão for clicado; Tag: O
-        script da ferramenta de análise. O pedaço do código que é executado
-        quando as condições do trigger são atendidas.
+        <strong>6. GTM - Conceitos:</strong> <br /> Variável: Espaços para armazenar
+        valores. Por exemplo: URL da página, ID ou preço de um produto <br />
+        Trigger: Condições/gatilhos que disparam as tags de acordo com determinadas
+        ações. Por exemplo disparar a tag x se um botão for clicado; <br />
+        Tag: O script da ferramenta de análise. O pedaço do código que é executado quando as condições do trigger são atendidas.
       </p>
       <p>
-        <strong>7. Data Layer:</strong> O Data Layer é um objeto JS ( como se
-        fosse uma caixa ) que armazena informações de eventos antes de
-        enviá-las. Exemplo:
-        <code>dataLayer.push({event: "preco", value: 50.00});</code>
+        <strong>7. Data Layer:</strong> <br/>
+        1. É um objeto JS que funciona como uma "caixa" onde você armazena informações importantes do 
+        seu site ou aplicação para serem enviadas. É o intermediário entre o site e o GTM. <br />
+        A principal importância é que ele mantém os dados centralizados e estruturados. Facilita o envio de informações para o GTM. <br />
+        2. Exemplo de Data Layer:
+        <pre>
+            dataLayer.push({
+            event: "compra_realizada",
+            valor: 150.00,
+            produto: "Tênis"
+          });
+        </pre>
+        O "event" sendo o gatilho que dispara a tag de acompanhamento de compra. E os outros dados também podem ser usados. <br />
+        <br />
       </p>
       <p>
         <strong>8. Organização e Prioridades:</strong> <br />
@@ -101,15 +116,16 @@
         Criar um documento de especificação, incluindo o nome exato dos
         eventos/parâmetros, onde eles disparam e quais dados precisam ser
         capturados (Ex: ID do banner, posição, nome da promoção).
+        Mapear quais informações o desenvolvedor precisa disponibilizar no Data Layer.
+        Configuração de tags, triggers e variáveis no GTM.
         <br /><br />
 
         2 - Reunião inicial: Organizar uma reunião com marketing, analistas e
         desenvolvedores.<br />
-        Marketing deve apresentar o objetivo de negócio.<br />
+        O Documento de especificação de rastreamento deve ser compartilhado e aprovado por todos. Qualquer alteração deve ser registrada lá.
         Definição de funções e responsabilidades:<br />
         Marketing: Define a necessidade e o uso dos dados.<br />
-        Desenvolvedores: São responsáveis por implementar a camada de dados
-        (Data Layer).<br />
+        Desenvolvedores: São responsáveis por implementar a camada de dados.<br />
         Analistas: São responsáveis por configurar o Gerenciador de Tags e
         validar os dados.
       </p>
