@@ -3,46 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>T</title>
-
+    <title>Teste i-Cherry</title>
+    <link rel="icon" href="assets/icon-icherry.webp" />
     <script defer src="/__/firebase/12.3.0/firebase-app-compat.js"></script>
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
     <link rel="stylesheet" href="styles.css" />
-
-    <style>
-      /* Modal básico */
-      #modalFetch {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.5);
-      }
-      #modalContent {
-        background-color: #fff;
-        margin: 10% auto;
-        padding: 20px;
-        border-radius: 8px;
-        width: 80%;
-        max-height: 60%;
-        overflow-y: auto;
-        white-space: pre-wrap; /* Mantém quebras de linha */
-      }
-      #closeModal {
-        float: right;
-        cursor: pointer;
-        font-weight: bold;
-      }
-    </style>
   </head>
   <body>
     <header>
-      <h1>T</h1>
+      <h1 class="header-titulo">
+        Teste
+        <img
+          src="assets/logo-icherry.webp"
+          alt="iCherry Logo"
+          class="logo-header"
+        />
+      </h1>
     </header>
 
     <nav>
@@ -51,67 +28,90 @@
     </nav>
 
     <section id="botoes" class="active">
-      <h2>Botões de Teste</h2>
+      <h2>Botões</h2>
 
       <div class="botao-linha">
-        <button id="comprar" class="btn">Comprar Agora</button>
-        <span id="resultComprarAgora" class="resultado"></span>
+        <div class="coluna">
+          <button id="comprar" class="btn">Comprar Agora</button>
+          <span id="resultComprarAgora" class="resultado"></span>
+        </div>
+        <div class="coluna">
+          <button id="extrairId" class="btn">Extrair ID da URL</button>
+          <span id="resultExtrairId" class="resultado"></span>
+        </div>
       </div>
 
       <div class="botao-linha">
-        <button id="extrairId" class="btn">Extrair ID da URL</button>
-        <span id="resultExtrairId" class="resultado"></span>
+        <div class="coluna">
+          <button id="contadorBtn" class="btn">Testar Contador</button>
+          <span id="resultadoContador" class="resultado"></span>
+        </div>
+        <div class="coluna">
+          <button id="fetchBtn" class="btn">Buscar Dados</button>
+          <input
+            title="URL para fetch"
+            type="text"
+            value="https://jsonplaceholder.typicode.com/posts"
+            id="inputFetch"
+            class="input-fetch"
+          />
+        </div>
       </div>
 
       <div class="botao-linha">
-        <button id="contadorBtn" class="btn">Testar Contador</button>
-        <span id="resultadoContador" class="resultado"></span>
+        <div class="coluna">
+          <button id="mapProdutos" class="btn">Formatar Produtos</button>
+          <div id="resultadoProdutos" class="resultado"></div>
+        </div>
+        <div class="coluna">
+          <label for="inputArray">Digite separado por ";"</label>
+          <input
+            title="Array para converter"
+            type="text"
+            id="inputArray"
+            class="input-fetch"
+            value="camiseta;calça;tênis"
+          />
+          <button id="btnArray" class="btn">Converter</button>
+          <div id="resultadoArray" class="resultado-array"></div>
+        </div>
       </div>
-
-      <div class="botao-linha">
-        <input
-          title="URL para fetch"
-          type="text"
-          value="https://jsonplaceholder.typicode.com/posts"
-          id="inputFetch"
-          class="input-fetch"
-        />
-        <button id="fetchBtn" class="btn">Buscar Dados</button>
-      </div>
-
-      <div class="botao-linha">
-        <button id="mapProdutos" class="btn">Formatar Produtos</button>
-        <div id="resultadoProdutos" class="resultado"></div>
-      </div>
-
-      <div class="botao-linha">
-        <input
-          title="Array para converter"
-          type="text"
-          id="inputArray"
-          class="input-fetch"
-        />
-        <button id="btnArray" class="btn">Converter para MAIÚSCULO</button>
-      </div>
-
-      <div id="resultadoArray" class="resultado-array"></div>
     </section>
 
     <section id="questoes">
       <h2>Questões e Respostas</h2>
       <p>
-        <strong>6. GTM - Conceitos:</strong> Variável: Armazena dados; Trigger:
-        Aciona eventos; Tag: Envia informações para ferramentas.
+        <strong>6. GTM - Conceitos:</strong> Variável: Espaços para armazenar
+        valores. Por exemplo: URL da página, ID ou preço de um produto Trigger:
+        Condições/gatilhos que disparam as tags de acordo com determinadas
+        ações. Por exemplo disparar a tag x se um botão for clicado; Tag: O
+        script da ferramenta de análise. O pedaço do código que é executado
+        quando as condições do trigger são atendidas.
       </p>
       <p>
-        <strong>7. Data Layer:</strong> O Data Layer é um objeto JS que armazena
-        informações de eventos antes de enviá-las. Exemplo:
-        <code>dataLayer.push({event: "cadastro_concluido"});</code>
+        <strong>7. Data Layer:</strong> O Data Layer é um objeto JS ( como se
+        fosse uma caixa ) que armazena informações de eventos antes de
+        enviá-las. Exemplo:
+        <code>dataLayer.push({event: "preco", value: 50.00});</code>
       </p>
       <p>
-        <strong>8. Organização e Prioridades:</strong> 1. Mapear
-        banners/eventos. 2. Definir triggers e variáveis. 3. Testar no staging.
-        4. Garantir comunicação com equipe.
+        <strong>8. Organização e Prioridades:</strong> <br />
+        1 - Definir métricas, oque exatamente será medido ( cliques e interações
+        ). <br />
+        Criar um documento de especificação, incluindo o nome exato dos
+        eventos/parâmetros, onde eles disparam e quais dados precisam ser
+        capturados (Ex: ID do banner, posição, nome da promoção).
+        <br /><br />
+
+        2 - Reunião inicial: Organizar uma reunião com marketing, analistas e
+        desenvolvedores.<br />
+        Marketing deve apresentar o objetivo de negócio.<br />
+        Definição de funções e responsabilidades:<br />
+        Marketing: Define a necessidade e o uso dos dados.<br />
+        Desenvolvedores: São responsáveis por implementar a camada de dados
+        (Data Layer).<br />
+        Analistas: São responsáveis por configurar o Gerenciador de Tags e
+        validar os dados.
       </p>
     </section>
 
@@ -142,6 +142,7 @@
       document.getElementById("comprar").addEventListener("click", () => {
         document.getElementById("resultComprarAgora").textContent =
           "Botão comprar clicado";
+        console.log("Botão comprar clicado");
       });
 
       // 2. Extrair ID da URL
@@ -150,6 +151,7 @@
         const params = new URL(url).searchParams;
         const id = params.get("id");
         document.getElementById("resultExtrairId").textContent = `ID: ${id}`;
+        console.log("ID extraído:", id);
       });
 
       // 3. Contador
@@ -158,6 +160,7 @@
         return function () {
           count++;
           document.getElementById("resultadoContador").textContent = count;
+          console.log(count);
         };
       }
       const contador = criarContador();
@@ -183,7 +186,6 @@
             if (!res.ok) {
               throw new Error(`Falha na requisição. Status ${res.status}`);
             }
-            // Tenta interpretar como JSON
             return res
               .json()
               .then((data) => JSON.stringify(data, null, 2))
@@ -226,7 +228,9 @@
       // 6. Input array
       document.getElementById("btnArray").addEventListener("click", () => {
         const input = document.getElementById("inputArray").value;
-        if (!input) return alert("Digite algo!");
+        if (!input) {
+          return alert("Digite algo!");
+        }
         const array = input.split(";").map((s) => s.trim().toUpperCase());
         document.getElementById("resultadoArray").textContent = `[${array.join(
           ", "
