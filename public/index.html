@@ -1,164 +1,242 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Welcome to Firebase Hosting</title>
-
-    <!-- update the version number as needed -->
+    <title>Teste i-Cherry</title>
+    <link rel="icon" href="assets/icon-icherry.webp" />
     <script defer src="/__/firebase/12.3.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/12.3.0/firebase-auth-compat.js"></script>
-    <script
-      defer
-      src="/__/firebase/12.3.0/firebase-database-compat.js"
-    ></script>
-    <script
-      defer
-      src="/__/firebase/12.3.0/firebase-firestore-compat.js"
-    ></script>
-    <script
-      defer
-      src="/__/firebase/12.3.0/firebase-functions-compat.js"
-    ></script>
-    <script
-      defer
-      src="/__/firebase/12.3.0/firebase-messaging-compat.js"
-    ></script>
-    <script defer src="/__/firebase/12.3.0/firebase-storage-compat.js"></script>
-    <script
-      defer
-      src="/__/firebase/12.3.0/firebase-analytics-compat.js"
-    ></script>
-    <script
-      defer
-      src="/__/firebase/12.3.0/firebase-remote-config-compat.js"
-    ></script>
-    <script
-      defer
-      src="/__/firebase/12.3.0/firebase-performance-compat.js"
-    ></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
-    <style media="screen">
-      body {
-        background: #eceff1;
-        color: rgba(0, 0, 0, 0.87);
-        font-family: Roboto, Helvetica, Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-      #message {
-        background: white;
-        max-width: 360px;
-        margin: 100px auto 16px;
-        padding: 32px 24px;
-        border-radius: 3px;
-      }
-      #message h2 {
-        color: #ffa100;
-        font-weight: bold;
-        font-size: 16px;
-        margin: 0 0 8px;
-      }
-      #message h1 {
-        font-size: 22px;
-        font-weight: 300;
-        color: rgba(0, 0, 0, 0.6);
-        margin: 0 0 16px;
-      }
-      #message p {
-        line-height: 140%;
-        margin: 16px 0 24px;
-        font-size: 14px;
-      }
-      #message a {
-        display: block;
-        text-align: center;
-        background: #039be5;
-        text-transform: uppercase;
-        text-decoration: none;
-        color: white;
-        padding: 16px;
-        border-radius: 4px;
-      }
-      #message,
-      #message a {
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-      }
-      #load {
-        color: rgba(0, 0, 0, 0.4);
-        text-align: center;
-        font-size: 13px;
-      }
-      @media (max-width: 600px) {
-        body,
-        #message {
-          margin-top: 0;
-          background: white;
-          box-shadow: none;
-        }
-        body {
-          border-top: 16px solid #ffa100;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div id="message">
-      <h2>Teste</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
+    <header>
+      <h1 class="header-titulo">
+        Teste
+        <img
+          src="assets/logo-icherry.webp"
+          alt="iCherry Logo"
+          class="logo-header"
+        />
+      </h1>
+    </header>
+
+    <nav>
+      <button class="tab-button active" data-tab="botoes">Botões</button>
+      <button class="tab-button" data-tab="questoes">Questões</button>
+    </nav>
+
+    <section id="botoes" class="active">
+      <h2>Botões</h2>
+
+      <div class="botao-linha">
+        <div class="coluna">
+          <button id="comprar" class="btn">Comprar Agora</button>
+          <span id="resultComprarAgora" class="resultado"></span>
+        </div>
+        <div class="coluna">
+          <button id="extrairId" class="btn">Extrair ID da URL</button>
+          <span id="resultExtrairId" class="resultado"></span>
+        </div>
+      </div>
+
+      <div class="botao-linha">
+        <div class="coluna">
+          <button id="contadorBtn" class="btn">Testar Contador</button>
+          <span id="resultadoContador" class="resultado"></span>
+        </div>
+        <div class="coluna">
+          <button id="fetchBtn" class="btn">Buscar Dados</button>
+          <input
+            title="URL para fetch"
+            type="text"
+            value="https://jsonplaceholder.typicode.com/posts"
+            id="inputFetch"
+            class="input-fetch"
+          />
+        </div>
+      </div>
+
+      <div class="botao-linha">
+        <div class="coluna">
+          <button id="mapProdutos" class="btn">Formatar Produtos</button>
+          <div id="resultadoProdutos" class="resultado"></div>
+        </div>
+        <div class="coluna">
+          <label for="inputArray">Digite separado por ";"</label>
+          <input
+            title="Array para converter"
+            type="text"
+            id="inputArray"
+            class="input-fetch"
+            value="camiseta;calça;tênis"
+          />
+          <button id="btnArray" class="btn">Converter</button>
+          <div id="resultadoArray" class="resultado-array"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="questoes">
+      <h2>Questões e Respostas</h2>
       <p>
-        You're seeing this because you've successfully setup Firebase Hosting.
-        Now it's time to go build something extraordinary!
+        <strong>6. GTM - Conceitos:</strong> Variável: Espaços para armazenar
+        valores. Por exemplo: URL da página, ID ou preço de um produto Trigger:
+        Condições/gatilhos que disparam as tags de acordo com determinadas
+        ações. Por exemplo disparar a tag x se um botão for clicado; Tag: O
+        script da ferramenta de análise. O pedaço do código que é executado
+        quando as condições do trigger são atendidas.
       </p>
-      <!-- <a target="_blank" href="https://firebase.google.com/docs/hosting/"
-        >Open Hosting Documentation</a -->
-      >
+      <p>
+        <strong>7. Data Layer:</strong> O Data Layer é um objeto JS ( como se
+        fosse uma caixa ) que armazena informações de eventos antes de
+        enviá-las. Exemplo:
+        <code>dataLayer.push({event: "preco", value: 50.00});</code>
+      </p>
+      <p>
+        <strong>8. Organização e Prioridades:</strong> <br />
+        1 - Definir métricas, oque exatamente será medido ( cliques e interações
+        ). <br />
+        Criar um documento de especificação, incluindo o nome exato dos
+        eventos/parâmetros, onde eles disparam e quais dados precisam ser
+        capturados (Ex: ID do banner, posição, nome da promoção).
+        <br /><br />
+
+        2 - Reunião inicial: Organizar uma reunião com marketing, analistas e
+        desenvolvedores.<br />
+        Marketing deve apresentar o objetivo de negócio.<br />
+        Definição de funções e responsabilidades:<br />
+        Marketing: Define a necessidade e o uso dos dados.<br />
+        Desenvolvedores: São responsáveis por implementar a camada de dados
+        (Data Layer).<br />
+        Analistas: São responsáveis por configurar o Gerenciador de Tags e
+        validar os dados.
+      </p>
+    </section>
+
+    <!-- Modal -->
+    <div id="modalFetch">
+      <div id="modalContent">
+        <span id="closeModal">&times;</span>
+        <pre id="modalData"></pre>
+      </div>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
 
-    <!-- <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+    <script>
+      // Controle de abas
+      const buttons = document.querySelectorAll(".tab-button");
+      const sections = document.querySelectorAll("section");
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          buttons.forEach((b) => b.classList.remove("active"));
+          sections.forEach((s) => s.classList.remove("active"));
+
+          btn.classList.add("active");
+          document.getElementById(btn.dataset.tab).classList.add("active");
+        });
       });
-    </script> -->
+
+      // 1. Botão comprar
+      document.getElementById("comprar").addEventListener("click", () => {
+        document.getElementById("resultComprarAgora").textContent =
+          "Botão comprar clicado";
+        console.log("Botão comprar clicado");
+      });
+
+      // 2. Extrair ID da URL
+      document.getElementById("extrairId").addEventListener("click", () => {
+        const url = "https://www.exemplo.com/produto?id=123&ref=afiliado";
+        const params = new URL(url).searchParams;
+        const id = params.get("id");
+        document.getElementById("resultExtrairId").textContent = `ID: ${id}`;
+        console.log("ID extraído:", id);
+      });
+
+      // 3. Contador
+      function criarContador() {
+        let count = 0;
+        return function () {
+          count++;
+          document.getElementById("resultadoContador").textContent = count;
+          console.log(count);
+        };
+      }
+      const contador = criarContador();
+      document
+        .getElementById("contadorBtn")
+        .addEventListener("click", contador);
+
+      // 4. Buscar dados via fetch e mostrar no modal
+      const modal = document.getElementById("modalFetch");
+      const modalContent = document.getElementById("modalData");
+      const closeModal = document.getElementById("closeModal");
+
+      document.getElementById("fetchBtn").addEventListener("click", () => {
+        const url = document.getElementById("inputFetch").value.trim();
+        if (!url) {
+          modalContent.textContent = "Erro: Digite uma URL!";
+          modal.style.display = "block";
+          return;
+        }
+
+        fetch(url)
+          .then((res) => {
+            if (!res.ok) {
+              throw new Error(`Falha na requisição. Status ${res.status}`);
+            }
+            return res
+              .json()
+              .then((data) => JSON.stringify(data, null, 2))
+              .catch(() =>
+                res.text().then((text) => `O conteúdo não é JSON:\n${text}`)
+              );
+          })
+          .then((finalData) => {
+            modalContent.textContent = finalData;
+            modal.style.display = "block";
+          })
+          .catch((err) => {
+            modalContent.textContent = "URL inválida:\n" + err;
+            modal.style.display = "block";
+          });
+      });
+
+      // Fechar modal
+      closeModal.addEventListener(
+        "click",
+        () => (modal.style.display = "none")
+      );
+      window.addEventListener("click", (e) => {
+        if (e.target == modal) modal.style.display = "none";
+      });
+
+      // 5. Map produtos
+      document.getElementById("mapProdutos").addEventListener("click", () => {
+        const produtos = [
+          { id: 1, nome: "Camiseta", preco: 50 },
+          { id: 2, nome: "Calça", preco: 120 },
+          { id: 3, nome: "Tênis", preco: 250 },
+        ];
+        const nomes = produtos.map((p) => p.nome.toUpperCase());
+        console.log("Produtos formatados:", nomes);
+        document.getElementById("resultadoProdutos").textContent =
+          "Produtos formatados: " + nomes.join(", ");
+      });
+
+      // 6. Input array
+      document.getElementById("btnArray").addEventListener("click", () => {
+        const input = document.getElementById("inputArray").value;
+        if (!input) {
+          return alert("Digite algo!");
+        }
+        const array = input.split(";").map((s) => s.trim().toUpperCase());
+        document.getElementById("resultadoArray").textContent = `[${array.join(
+          ", "
+        )}]`;
+        console.log(array);
+      });
+    </script>
   </body>
 </html>
